@@ -1,0 +1,21 @@
+<!-- 页脚部分 -->
+<footer>
+	<p class="xby-link">友情链接：
+		
+		<% links.forEach(function(link){ %>
+			<a href="http://<%=link.url%>" target="_back"><%=link.name%></a> |
+		<% }) %>
+		
+	</p>
+	<p>小白猿个人博客 <a href="/">陇ICP备11002373号-1</a></p>
+	
+</footer>
+<script>
+	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+		(function(){
+			window.scrollReveal = new scrollReveal({reset: true});
+		})();
+	};
+</script> 
+</body>
+</html>

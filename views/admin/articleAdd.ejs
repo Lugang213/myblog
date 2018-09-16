@@ -1,0 +1,78 @@
+<% include header %>
+
+	<!-- 路径导航 -->
+	<ol class="breadcrumb">
+	  <li><a href="#">文章管理</a></li>
+	  <li class="active">发布文章</li>
+	</ol>
+	<!-- 路径导航 end -->
+	
+	<form class="articleSend" action="/admin/articleInsert" method="post" enctype="multipart/form-data">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+				  <span class="input-group-addon">分类</span>
+				  <select class="form-control" name="itemId">
+				  	<% items.forEach(function(val){ %>
+					  	<option value="<%=val._id%>"><%=val.name%></option>
+				  	<% })%>
+				  </select>
+				</div>				
+			</div>
+
+			<div class="col-md-6">
+				<div class="input-group">
+				  <span class="input-group-addon">标题</span>
+				  <input type="text" class="form-control" name="title">
+				</div>			
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+				  <span class="input-group-addon">作者</span>
+				  <input type="text" class="form-control" name="author">
+				</div>			
+			</div>
+			<div class="col-md-6">
+				<div class="input-group">
+				  <span class="input-group-addon">封面</span>
+				  <input type="file" class="form-control" name="imgurl">
+				</div>			
+			</div>	
+
+
+			<div class="col-md-12">
+				<div class="input-group">
+				  <span class="input-group-addon">关 &nbsp; 键 &nbsp; 字</span>
+				  <input type="text" class="form-control" name="keywords">
+				</div>			
+			</div>
+			<div class="col-md-12">
+				<div class="input-group">
+				  <span class="input-group-addon">文章描述</span>
+				  <input type="text" class="form-control" name="description">
+				</div>			
+			</div>
+			<div class="col-md-12">
+				<textarea id="content" name="content"></textarea>
+			</div>
+
+		</div>
+		<div class="row btns">
+			<div class="col-md-6 nav-sub">
+				<input class="center-block btn btn-success" type="submit" value="发布文章">
+			</div>
+			<div class="col-md-6 nav-sub">
+				<input class="btn btn-default center-block" type="reset" value="重新发布">
+			</div>
+		</div>
+	</form>
+
+	<!-- 配置文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript">
+	    // 实例化编辑器 
+        var ue = UE.getEditor('content');
+    </script>
+<% include footer %>

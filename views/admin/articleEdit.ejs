@@ -1,0 +1,92 @@
+<% include header %>
+
+	<!-- 路径导航 -->
+	<ol class="breadcrumb">
+	  <li><a href="#">文章管理</a></li>
+	  <li class="active">编辑文章</li>
+	</ol>
+	<!-- 路径导航 end -->
+	
+	<!-- 编辑文章 封面 -->
+	<div class="row articleImageEdit">
+		<div class="col-md-2">编辑文章封面:</div>
+		<div class="col-md-2">
+			<img src="/<%=data.imgurl%>" alt="" style="width:200px">
+		</div>
+		<div class="col-md-7">
+			<form action="/admin/articleImageUpdate" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="_id" value="<%= data._id %>">
+				<input type="file" name="imgurl">	<br>
+				<input type="submit" value="修改提交">
+			</form>
+		</div>
+	</div>
+	<!-- 编辑文章 封面 END -->
+
+	<!-- 编辑文章 内容 -->
+	<form class="articleTextEdit" action="/admin/articleTextUpdate" method="post">
+		<!-- 修改文章的 id  -->
+		<input type="hidden" name="_id" value="<%= data._id %>">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="input-group">
+				  <span class="input-group-addon">文章分类</span>
+				  <select class="form-control" name="itemId">
+				  	<% items.forEach(function(val){ %>
+					  	<option <%=val._id.toString()==data.itemId?'selected':''%> value="<%=val._id%>">
+					  		<%=val.name%>
+					  	</option>
+				  	<% }) %>
+				  </select>
+				</div>				
+			</div>
+
+			<div class="col-md-4">
+				<div class="input-group">
+				  <span class="input-group-addon">标题</span>
+				  <input type="text" class="form-control" name="title" value="<%=data.title%>">
+				</div>			
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+				  <span class="input-group-addon">作者</span>
+				  <input type="text" class="form-control" name="author" value="<%=data.author%>" >
+				</div>			
+			</div>
+			<div class="col-md-12">
+				<div class="input-group">
+				  <span class="input-group-addon">关 &nbsp; 键 &nbsp; 字</span>
+				  <input type="text" class="form-control" name="keywords" value="<%=data.keywords%>" >
+				</div>			
+			</div>
+			<div class="col-md-12">
+				<div class="input-group">
+				  <span class="input-group-addon">文章描述</span>
+				  <input type="text" class="form-control" name="description" value="<%=data.description%>" >
+				</div>			
+			</div>
+			<div class="col-md-12">
+				<textarea id="content" name="content"><%=data.content%></textarea>
+			</div>
+
+		</div>
+		<div class="row btns">
+			<div class="col-md-6">
+				<input class="center-block btn btn-success" type="submit" value="修改文章" style="margin:10px 50px 50px 0">
+			</div>
+			<div class="col-md-6">
+				<input class="btn btn-default center-block" type="reset" value="重新修改">
+			</div>
+		</div>
+	</form>
+
+	<!-- 配置文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript">
+	    // 实例化编辑器 
+        var ue = UE.getEditor('content');
+    </script>
+    
+<% include footer %>

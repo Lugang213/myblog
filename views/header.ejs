@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>小白猿个人博客 - 一个站在web前端设计之路的个人博客网站</title>
+	<meta name="keywords" content="个人博客,小白猿个人博客,个人博客模板,小白猿" />
+	<meta name="description" content="小白猿个人博客，是一个站在web前端设计之路的程序员个人网站" />
+	<!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
+	<link href="/css/base.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+	<link href="/css/learn.css" rel="stylesheet">
+	<link href="/css/about.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/content.css">
+	<link rel="stylesheet" href="/css/admin.css">
+	<!--[if lt IE 9]>
+	<script src="js/modernizr.js"></script>
+	<![endif]-->
+	<script src="/js/scrollReveal.js"></script>
+</head>
+<body>
+	<header>
+	  	<div class="logo" data-scroll-reveal="enter right over 1s">
+	  		<a href="/">
+	  			<img src="/images/xbyblog.png">
+	  		</a>
+	  	</div>
+	  	<nav class="topnav" data-scroll-reveal="enter bottom over 1s after 1s">
+	  		<a href="/"><span>首页</span><span class="en">Index</span></a>
+	  		<% items.forEach(function(val){ %>
+			    <a href="<%=val.itemRouter%>?router=<%=val.itemRouter%>"><span><%=val.name%></span><span class="en"><%=val.itemRouter%></span></a>
+		     <% }) %>
+	  		<!-- <a href="index.html"></a>
+	  		<a href="about.html"><span>关于我</span><span class="en">About</span></a>
+	  		<a href="manshenghuo.html"><span>慢生活</span><span class="en">Life</span></a>
+	  		<a href="learn.html"><span>碎言碎语</span><span class="en">Doing</span></a>
+	  		<a href="mbfx.html"><span>模板分享</span><span class="en">Share</span></a>
+	  		<a href="learn.html"><span>学无止境</span><span class="en">Learn</span></a>
+	  		<a href="gbook.html"><span>留言</span><span class="en">Saying</span></a> -->
+	  	</nav>
+	</header>

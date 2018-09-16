@@ -1,0 +1,60 @@
+<!-- 引入 公用的头部 模版 -->
+<% include header%>
+
+<div class="container">
+	<!-- 路径导航 -->
+	<ol class="breadcrumb min-nav-bg">
+	  <li><a href="#">用户管理</a></li>
+	  <li class="active">编辑管理员</li>
+	</ol>
+	<!-- 路径导航 end -->
+
+	<!-- 添加数据的表单 -->
+	<div class="row">
+		<div class="col-md-4 col-sm-2 col-xs-0"></div>
+		<div class="col-md-4 col-sm-8 col-xs-12">
+			<form class="formAdd" action="/admin/adminUpdate" method="post">
+				<input type="hidden" name="_id" value="<%=admins._id%>">
+				<div class="input-group">
+				  <span class="input-group-addon">用户名称</span>
+				  <input type="text" class="form-control" name="name" value="<%=admins.name%>">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">用户密码</span>
+				  <input type="password" class="form-control" name="password">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">重复密码</span>
+				  <input type="password" class="form-control" name="repassword">
+				</div>
+
+				<div class="input-group">
+				  <span class="input-group-addon">用户简介</span>
+				  <input type="text" class="form-control" name="info" value="<%=admins.info%>">
+				</div>
+
+				<div class="input-group">
+				  <span class="input-group-addon">联系方式</span>
+				  <input type="text" class="form-control" name="tel" value="<%=admins.tel%>">
+				</div>
+<!-- 
+				<div class="input-group">
+				  <span class="input-group-addon">验 &nbsp;证 &nbsp;码</span>
+				  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+				  <span class="input-group-addon">
+				  	<a href="/admin/adminAdd"><img src="/admin/code" alt=""></a></span>
+				</div> -->
+				<div class="input-group nav-sub">
+					<input class="nav-submit" type="submit" value="提交">
+				</div>
+					
+			</form>
+		</div>
+		<div class="col-md-4 col-sm-2 col-xs-0"></div>
+	</div>
+</div>
+
+
+
+<!-- 引入 公用的底部 模版 -->
+<% include footer%>

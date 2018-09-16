@@ -1,0 +1,43 @@
+<% include header %>
+
+<article>
+  <div class="container">
+    <div class="banner">
+      <p data-scroll-reveal="enter top over 2s">昨夜西风凋碧树。独上高楼，望尽天涯路</p>
+      <p data-scroll-reveal="enter left over 2s after 1s">衣带渐宽终不悔，为伊消得人憔悴</p>
+      <p data-scroll-reveal="enter bottom over 2s after 2s">众里寻他千百度，蓦然回首，那人却在灯火阑珊处</p>
+    </div>
+    <div class="memorial_day">
+      <div class="time_axis"></div>
+      <ul>
+        <li class="n1"><a href="/">环境安装</a>
+          <div class="dateview">2018-8-31</div>
+        </li>
+        <li class="n2"><a href="/">创建个人博客</a>
+          <div class="dateview">2018-09-01</div>
+        </li>
+        <li class="n3"><a href="/">解决bug</a>
+          <div class="dateview">2018-09-02</div>
+        </li>
+        <li class="n4"><a href="/">解决bug</a>
+          <div class="dateview">2018-09-03</div>
+        </li>
+        <li class="n5"><a href="/">找bug</a>
+          <div class="dateview">2018-09-04</div>
+        </li>
+      </ul>
+    </div>
+    <div class="about left">
+       
+        <h2><%=articles.title%></h2>
+        <ul> 
+        <a href="list"><%-articles.content%></a>
+        </ul>
+        <h3> 作者： <%=articles.author%></h3>
+        <p><%=articles.ctime.toLocaleString()%> </p> 
+     
+    </div>
+  </div>
+  </aside>
+</article>
+<% include footer %>
